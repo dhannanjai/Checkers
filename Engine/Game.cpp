@@ -45,6 +45,15 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	SpriteCodex::DrawTileBlack(Graphics::GetScreenRect().GetCenter(),gfx);
+	SpriteCodex::DrawTileWhite(Graphics::GetScreenRect().GetCenter() ,gfx);
+	SpriteCodex::DrawWhiteChecker(Graphics::GetScreenRect().GetCenter(), gfx);
+	SpriteCodex::DrawTileWhite(Graphics::GetScreenRect().GetCenter() + Vec2i(SpriteCodex::tileSize, 0), gfx);
+	SpriteCodex::DrawBlackChecker(Graphics::GetScreenRect().GetCenter() + Vec2i(SpriteCodex::tileSize, 0), gfx);
+
+
+	SpriteCodex::DrawTileBlack(Graphics::GetScreenRect().GetCenter() + Vec2i(SpriteCodex::tileSize, SpriteCodex::tileSize), gfx);
+	SpriteCodex::DrawWhiteChecker(Graphics::GetScreenRect().GetCenter() + Vec2i(SpriteCodex::tileSize, SpriteCodex::tileSize), gfx);
+	SpriteCodex::DrawTileBlack(Graphics::GetScreenRect().GetCenter() + Vec2i(0, SpriteCodex::tileSize), gfx);
+	SpriteCodex::DrawBlackChecker(Graphics::GetScreenRect().GetCenter() + Vec2i(0, SpriteCodex::tileSize), gfx);
 }
 

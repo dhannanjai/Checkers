@@ -17,6 +17,8 @@ public:
 	static void DrawTile(const Vec2i& pos, Graphics& gfx);
 	static void DrawTileWhite(const Vec2i& pos, Graphics& gfx);
 	static void DrawTileBlack(const Vec2i& pos, Graphics& gfx);
+	static void DrawWhiteChecker(const Vec2i& pos, Graphics& gfx);
+	static void DrawBlackChecker(const Vec2i& pos, Graphics& gfx);
 	// Tile selector function valid input 0-8
 	// Win Screen 254x192 center origin
 	static void DrawWin(const Vec2i& pos, Graphics& gfx);

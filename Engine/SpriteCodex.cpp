@@ -10,42 +10,59 @@ void SpriteCodex::DrawTile(const Vec2i& pos, Graphics& gfx)
 	}
 }
 
-void SpriteCodex::DrawTileBlack(const Vec2i& pos, Graphics& gfx)
+void SpriteCodex::DrawBlackChecker(const Vec2i & pos, Graphics & gfx)
+{
+	Vec2i center = pos + Vec2i(halfTileSize, halfTileSize);
+
+	int radiusSq = radius*radius;
+	for (int x = pos.x + 1; x < pos.x + tileSize - 1; x++)
+	{
+		for (int y = pos.y + 1; y < pos.y + tileSize - 1; y++)
+		{
+			int posx = x - center.x;
+			int posy = y - center.y;
+			if (posx*posx + posy*posy < radiusSq)
+				gfx.PutPixel(x, y, Color(50, 20, 20));
+		}
+	}
+}
+
+void SpriteCodex::DrawWhiteChecker(const Vec2i & pos, Graphics & gfx)
 {
 	Vec2i center = pos + Vec2i(halfTileSize, halfTileSize);
 
 	int radiusSq = radius*radius;
 
-	for (int x = pos.x; x < pos.x + tileSize; x++)
+	for (int x = pos.x + 1; x < pos.x + tileSize - 1; x++)
 	{
-		for (int y = pos.y; y < pos.y + tileSize; y++)
+		for (int y = pos.y + 1; y < pos.y + tileSize - 1; y++)
 		{
 			int posx = x - center.x;
 			int posy = y - center.y;
 			if (posx*posx + posy*posy < radiusSq)
-				gfx.PutPixel(x, y, Color(0,0,0));
-			else
-				gfx.PutPixel(x, y, Color(255, 255, 255));
+				gfx.PutPixel(x, y, Color(255, 235, 205));
 		}
 	}
 }
 
 void SpriteCodex::DrawTileWhite(const Vec2i& pos, Graphics& gfx)
 {
-	Vec2i center = pos + Vec2i(halfTileSize, halfTileSize);
-
-	int radiusSq = radius*radius;
-
-	for (int x = pos.x; x < pos.x + tileSize ; x++)
+	for (int x = pos.x + 1; x < pos.x + tileSize - 1; x++)
 	{
-		for (int y = pos.y; y <  pos.y + tileSize; y++)
+		for (int y = pos.y + 1; y < pos.y + tileSize - 1; y++)
 		{
-			int posx = x-center.x;
-			int posy = y-center.y;
-			if (posx*posx + posy*posy < radiusSq)
-				gfx.PutPixel(x, y, Color(255, 255, 255));
-			else
-				gfx.PutPixel(x, y, Color(0, 0, 0));
+				gfx.PutPixel(x, y, Color(225, 169, 95));
+		}
+	}
+}
+
+void SpriteCodex::DrawTileBlack(const Vec2i& pos, Graphics& gfx)
+{
+	for (int x = pos.x + 1; x < pos.x + tileSize - 1; x++)
+	{
+		for (int y = pos.y + 1; y < pos.y + tileSize - 1; y++)
+		{
+			gfx.PutPixel(x, y, Color(204, 119, 34));
 		}
 	}
 }
